@@ -6,7 +6,6 @@ int n;
 
 int front = -1;
 int rear = -1;
-int n;
 
 void enqueue(int val){
     if(rear >= n-1){

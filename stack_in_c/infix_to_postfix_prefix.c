@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define size 50
 
-char res[50]; 
-char stackarr[50];
+char res[size]; 
+char stackarr[size];
 int top = -1;
 
 void push(char ch) {
-    if(top==50-1){
+    if(top==size-1){
         printf("stack overflow\n");
         return;
     }
@@ -82,7 +83,7 @@ void infixToPostfix(char st[]){
 
 
 void infixToPrefix(char st[]){
-    char newSt[50]; int m=0;
+    char newSt[size]; int m=0;
     for(int i=strlen(st)-1; i>=0; i--){
         newSt[m]='\0';
         if(st[i]==')'){
@@ -131,7 +132,7 @@ void infixToPrefix(char st[]){
     }
 
     int j=0;
-    char result[50];
+    char result[size];
     for(int i=strlen(res)-1; i>=0; i--){
         result[j] = res[i];
         j++;
@@ -142,8 +143,8 @@ void infixToPrefix(char st[]){
 // *-a/bc-/akl
 
 int main(void){
-    // infixToPostfix("(a-b/c)*(a/k-l)");
-    infixToPrefix("(a-b/c)*(a/k-l)");
+    infixToPostfix("(a-b/c)*(a/k-l)");
+    // infixToPrefix("(a-b/c)*(a/k-l)");
     return 0;
 }
 

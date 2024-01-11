@@ -6,7 +6,7 @@
 int top = -1;
 int stackarr[MAX_SIZE];
 
-void push(char c) {
+void push(int c) {
     if (top >= MAX_SIZE - 1) {
         printf("Stack Overflow");
     }
@@ -41,6 +41,9 @@ int operation(char c, int num1, int num2) {
         case '/': {
             return num1 / num2;
             break;
+        }
+        default:{
+            return -1;
         }
     }
 }

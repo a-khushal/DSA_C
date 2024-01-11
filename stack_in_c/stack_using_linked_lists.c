@@ -63,4 +63,3 @@ int main(void){
 	empty(head);
 	return 0;
 }
-
