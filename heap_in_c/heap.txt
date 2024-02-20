@@ -1,0 +1,23 @@
+A Heap is a special Tree-based data structure in which the tree is a complete binary tree.
+
+A Binary Tree is a Complete Binary Tree if all the levels are completely filled except possibly the last level and the last level has all keys as left as possible.
+A complete binary tree is just like a full binary tree, but with two major differences:
+    -Every level except the last level must be completely filled.
+    -All the leaf elements must lean towards the left.
+    -The last leaf element might not have a right sibling i.e. a complete binary tree doesn’t have to be a full binary tree.
+    -The height of the complete binary tree is always logn
+
+Two types of heap:
+ Max heap: The total number of comparisons required in the max heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
+ Min heap: The total number of comparisons required in the min heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
+
+The relationship between a parent node at index ‘i’ and its children is given by the formulas: left child at index 2i+1 and right child at index 2i+2 "for 0-based indexing of node numbers". remove +1 and +2 in case of 1 based indexing
+
+Efficient Insertion and Removal: Insertion and removal operations in heap trees are efficient. New elements are inserted at the next available position in the "bottom-rightmost level", and the heap property is restored by comparing the element with its parent and swapping if necessary. Removal of the root element involves replacing it with the last element and heapifying down.
+
+Efficient Access to Extremal Elements: The minimum or maximum element is always at the root of the heap, allowing constant-time access.
+
+Heapify:
+    It is the process to rearrange the elements to maintain the property of heap data structure. It is done when a certain node creates an imbalance in the heap due to some operations on that node. It takes O(log N) to balance the tree. 
+        For max-heap, it balances in such a way that the maximum element is the root of that binary tree and 
+        For min-heap, it balances in such a way that the minimum element is the root of that binary tree.

@@ -1,0 +1,19 @@
+Part A: 
+	infix to postfix
+	evaluation of postfix
+	messaging queue system
+	multiplication of polynomial using singly linked list
+	circular singly linked list
+	heap(a type of binary tree used to implement priority queue)
+	hashing
+	trees
+	trees
+	trees
+
+Part B:
+	evaluation of postfix
+	infix to prefix
+	sparse matrix
+	addition of two long integers using singly linked lists with header node
+	circular queue using array of integers
+	stack using sll

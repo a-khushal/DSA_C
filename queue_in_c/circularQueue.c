@@ -11,8 +11,6 @@ struct queue
      int count;
 };
 
-
-
 void enqueue( struct queue *q, char  msg[ ] )
 {
      if( q->count == QUEUESIZE )

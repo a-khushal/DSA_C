@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+  struct node* next;
+  int co, po;
+};
+
+struct node* insertEnd(struct node* head, int co, int po){
+  struct node* newNode = (struct node*) malloc(sizeof(struct node));
+  struct node* curr;
+  newNode->co = co;
+  newNode->po = po;
+  newNode->next = NULL;
+  if(head == NULL){ // if the list is initially empty
+    return newNode;
+  }
+  curr = head;
+  while(curr->next != NULL){
+    curr = curr->next;
+  }
+  curr->next = newNode;
+  return head;
+}
+
+void display(struct node* head){
+  struct node* temp = head;
+  if(head == NULL){
+    printf("The list is empty\n");
+    return;
+  }
+  while(temp->next != NULL){
+    printf("%d*x^%d+", temp->co, temp->po);
+    temp = temp->next;
+  }
+  printf("%d*x^%d", co, po);
+}
+
+int main(void){
+  struct node* poly1 = NULL;
+  int n, co, po;
+  printf("Enter the number of terms in the first polynomial: ");
+  scanf("%d", n);
+  for(int i=0; i<n; i++){
+    printf("\nEnter the co and po of %d term", i+1);
+    scanf("%d %d", &co, &po);
+    poly1 = insertEnd(poly1, co, po);
+  }
+  printf("\nfirst polynomial: ");
+  display(poly1);
+  return 0;
+}
+
+
+
+
