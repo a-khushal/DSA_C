@@ -78,10 +78,6 @@ struct node* deleteEnd(struct node* head){
     return head;
 }
 
-struct node* deleteInBetween(struct node* head, int prev){
-
-}
-
 void display(struct node* head) {
     struct node* curr = head;
     if (head == NULL) return;

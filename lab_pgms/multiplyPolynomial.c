@@ -81,22 +81,22 @@ int main(void){
   printf("Enter the number of terms in the first polynomial: ");
   scanf("%d", &n);
   for(int i=0; i<n; i++){
-    printf("\nEnter the co and po of %d term: ", i+1);
+    printf("Enter the co and po of %d term: ", i+1);
     scanf("%d %d", &co, &po);
     poly1 = insertEnd(poly1, co, po);
   }
-  printf("\nfirst polynomial: ");
+  printf("first polynomial: ");
   display(poly1);
   printf("\n");
 
   printf("\nEnter the number of terms in the second polynomial: ");
   scanf("%d", &m);
   for(int i=0; i<m; i++){
-    printf("\nEnter the co and po of %d term: ", i+1);
+    printf("Enter the co and po of %d term: ", i+1);
     scanf("%d %d", &co, &po);
     poly2 = insertEnd(poly2, co, po);
   }
-  printf("\nsecond polynomial: ");
+  printf("second polynomial: ");
   display(poly2);
   printf("\n");
 
