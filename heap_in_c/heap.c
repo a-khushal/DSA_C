@@ -39,11 +39,12 @@ int arr[MAX_SIZE];
 int size = 0;
 
 void insert(int val) {
+    // we need to insert the new element at the last position so we check only till the position one before the last
     if (size >= MAX_SIZE - 1) {
         printf("Heap is full\n");
         return;
     }
-
+    // initially insert at the last index of the array and then heapify
     size++;
     int index = size;
     arr[index] = val;
@@ -72,15 +73,16 @@ void deleteFromHeap(){
 }
 
 // O(log n)
+// it converts the tree from the index i to the lower index of the tree into a heap(max/min)
 void heapify(int arr[], int size, int i){
     int largest = i;
     int left = 2*i;
     int right = 2*i + 1;
 
-    if(left <= size && arr[left] > arr[largest]){
+    if(left < size && arr[left] > arr[largest]){
         largest = left;
     } 
-    if(right <= size && arr[right] > arr[largest]){
+    if(right <  size && arr[right] > arr[largest]){
         largest = right;
     }
     if(largest != i){
@@ -100,7 +102,7 @@ void heapSort(int arr2[], int size){
         arr2[1] = arr2[t];
         arr2[t] = temp;
         t--;
-        heapify(arr2, t, 1); // we only swapped the first index so hepify using the first index only vro..
+        heapify(arr2, t, 1); // we only swapped the first index so hepify the first index only vro..
     }
 }   
 
@@ -112,33 +114,33 @@ void printFn(){
 }
 
 int main(void) {
-    // insert(50);
-    // insert(55);
-    // insert(53);
-    // insert(52);
-    // insert(54);
+    insert(50);
+    insert(55);
+    insert(53);
+    insert(52);
+    insert(54);
 
+    printFn();
+
+    // deleteFromHeap();
     // printFn();
+    int arr1[6] = {-1, 54, 55, 53, 52, 50};
+    int n=5;
 
-    // // deleteFromHeap();
-    // // printFn();
-    // int arr1[6] = {-1, 54, 55, 53, 52, 50};
-    // int n=5;
-
-    // // O(n)
-    // for(int i=n/2; i>0; i--){
-    //     heapify(arr1, n, i);
-    // }
-    // for(int i=1; i<6; i++){
-    //     printf("%d ", arr1[i]);
-    // }
-    // printf("\n");
-
-    int arr2[] = {-1, 70, 60, 55, 45, 50};
-    heapSort(arr2, 5);
-    for(int i=1; i<=5; i++){
-        printf("%d ", arr2[i]);
+    // O(n)
+    for(int i=n/2; i>0; i--){
+        heapify(arr1, n, i);
+    }
+    for(int i=1; i<6; i++){
+        printf("%d ", arr1[i]);
     }
     printf("\n");
+
+    // int arr2[] = {-1, 70, 60, 55, 45, 50};
+    // heapSort(arr2, 5);
+    // for(int i=1; i<=5; i++){
+    //     printf("%d ", arr2[i]);
+    // }
+    // printf("\n");
     return 0;
 }

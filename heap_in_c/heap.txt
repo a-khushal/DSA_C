@@ -8,10 +8,10 @@ A complete binary tree is just like a full binary tree, but with two major diffe
     -The height of the complete binary tree is always logn
 
 Two types of heap:
-    Max heap: The total number of comparisons required in the max heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
-    Min heap: The total number of comparisons required in the min heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
+    -Max heap: The total number of comparisons required in the max heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
+    -Min heap: The total number of comparisons required in the min heap is according to the height of the tree. The height of the complete binary tree is always logn; therefore, the time complexity would also be O(logn).
 
-The relationship between a parent node at index ‘i’ and its children is given by the formulas: left child at index 2i+1 and right child at index 2i+2 "for 0-based indexing of node numbers". remove +1 and +2 in case of 1 based indexing
+The relationship between a parent node at index ‘i’ and its children is given by the formulas: left child at index 2i+1 and right child at index 2i+2 "for 0-based indexing of node numbers". 2i and 2i+1 in case of 1 based indexing
 
 Efficient Insertion and Removal: Insertion and removal operations in heap trees are efficient. New elements are inserted at the next available position in the "bottom-rightmost level", and the heap property is restored by comparing the element with its parent and swapping if necessary. Removal of the root element involves replacing it with the last element and heapifying down.
 
