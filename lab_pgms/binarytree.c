@@ -49,7 +49,8 @@ int height(Node root){
   int lh = height(root->left);
   if(lh > rh)
     return lh+1;
-  return rh+1;
+  else
+    return rh+1;
 }
 
 int leafNode(Node root){
