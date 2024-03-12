@@ -8,6 +8,7 @@ struct node{
 };
 typedef struct node* Node;
 
+// inorder traversal
 void display(Node root){
   if(root!=NULL){
     display(root->left);

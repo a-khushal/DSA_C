@@ -143,7 +143,7 @@ void infixToPrefix(char st[]){
 // *-a/bc-/akl
 
 int main(void){
-    infixToPostfix("(a-b/c)*(a/k-l)");
+    infixToPostfix("((A+B)-C*(D/E))+F");
     // infixToPrefix("(a-b/c)*(a/k-l)");
     return 0;
 }

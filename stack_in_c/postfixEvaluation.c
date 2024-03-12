@@ -64,9 +64,10 @@ void postfixEvaluation(char st[]) {
         }
     }
     printf("result: %d", stackarr[top]);
+    printf("\n");
 }
 
 int main(void) {
-postfixEvaluation("231*+9-");
-return 0;
+    postfixEvaluation("34+5*");
+    return 0;
 }

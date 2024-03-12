@@ -51,14 +51,6 @@ struct node* createBST(struct node* root, int val){
   return root;
 }
 
-// struct node* inOrderSuccessor(struct node* root){
-//   struct node* curr = root;
-//   while(curr && curr->left != NULL){
-//     curr = curr->left;
-//   }
-//   return curr;
-// }
-
 
 struct node* inOrderSuccessor(struct node* root){
   struct node* curr = root;
@@ -67,35 +59,6 @@ struct node* inOrderSuccessor(struct node* root){
   }
   return curr;
 }
-
-// struct node* deletion(struct node* root, int del){
-//   struct node* temp;
-//   if(root == NULL){
-//     return NULL;
-//   }
-//   if(del < root->data){
-//     root->left = deletion(root->left, del);
-//   }
-//   else if(del > root->data){
-//     root->right = deletion(root->right, del);
-//   }
-//   else{
-//     if(root->left == NULL){
-//       temp = root->right;
-//       free(root);
-//       return temp;
-//     }
-//     if(root->right == NULL){
-//       temp = root->left;
-//       free(root);
-//       return temp;
-//     }
-//     temp = inOrderSuccessor(root->right); // inorder successor which means a value that comes after root and greater than root ofc so inorder->increasing series hence it's root->right
-//     root->data = temp->data;  // swapping the data of inorder successor with the node to be deleted
-//     root->right = deletion(root->right, temp->data);
-//   }
-//   return root;
-// }
 
 
 struct node* deletion(struct node* root, int val){
@@ -167,23 +130,3 @@ int main(void){
   }
   return 0;
 }
-
-
-
-
-// struct node* createBST(struct node* root, int val){
-//   struct node* temp;
-//   temp = (struct node*) malloc(sizeof(struct node));
-//   temp->data = val;
-//   temp->left = NULL;
-//   temp->right = NULL;
-//   if(root==NULL){
-//     return temp;
-//   }
-//   if(val < (root->data))
-//     root->left = createBST(root->left, val);
-//   else 
-//     root->right = createBST(root->right, val);
-//   return root;
-// }
-

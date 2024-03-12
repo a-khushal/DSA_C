@@ -43,6 +43,7 @@ struct node* deleteBegin(struct node* last){
     printf("\nNode deleted is: %d", temp->data);
     last->next = temp->next;
     free(temp);
+    return last;
 }
 
 void display(struct node* last){
