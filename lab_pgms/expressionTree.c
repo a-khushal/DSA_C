@@ -74,8 +74,6 @@ struct node* expressionTress(char infix[]){
   struct stack* ts = (struct stack*)malloc(sizeof(struct stack));
   struct stack* os = (struct stack*)malloc(sizeof(struct stack));
   struct node* osEle;
-  struct node* tsEle1;
-  struct node* tsEle2;
   ts->top = -1;
   os->top = -1;
   for(int i=0; infix[i]!='\0'; i++){
@@ -94,7 +92,7 @@ struct node* expressionTress(char infix[]){
           osEle->left = pop(ts);
           push(ts, osEle);
         } 
-        push(os, temp);
+        push(os, temp);   // if the precedence condition above in while doesn't satisty then just push it to the operator stack(os) also ts -> tree stack
       }
     }
   }

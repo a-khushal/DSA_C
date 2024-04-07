@@ -62,11 +62,12 @@ struct node* buildTreeUsingPreorderAndInorder(int preorder[], int inorder[], int
     
     int pos = searchItem(inorder, start, end, curr);
     n->left = buildTreeUsingPreorderAndInorder(preorder, inorder, start, pos-1);
-    // n->right = buildTreeUsingPreorderAndInorder(preorder, inorder, pos+1, end);
+    n->right = buildTreeUsingPreorderAndInorder(preorder, inorder, pos+1, end);
 
     return n;
 }
 
+//  int length = sizeof(arr) / sizeof(arr[0]);
 
 struct node* buildTreeUsingPostorderAndInorder(int postorder[], int inorder[], int start, int end){
 
@@ -74,7 +75,7 @@ struct node* buildTreeUsingPostorderAndInorder(int postorder[], int inorder[], i
         return NULL;
     }
 
-    static int idx = 4;
+    static int idx = 9;
     int curr = postorder[idx];
     idx--;
     struct node* n = (struct node*) malloc(sizeof(struct node));
@@ -94,30 +95,30 @@ struct node* buildTreeUsingPostorderAndInorder(int postorder[], int inorder[], i
 
 
 int main(void){
-    struct node* root = (struct node*) malloc(sizeof(struct node));
-    root->data = 1;
+    // struct node* root = (struct node*) malloc(sizeof(struct node));
+    // root->data = 1;
 
-    root->left = (struct node*) malloc(sizeof(struct node));
-    root->left->data = 2;
-    root->right = (struct node*) malloc(sizeof(struct node));
-    root->right->data = 3;
+    // root->left = (struct node*) malloc(sizeof(struct node));
+    // root->left->data = 2;
+    // root->right = (struct node*) malloc(sizeof(struct node));
+    // root->right->data = 3;
 
-    /* root->left->left = (struct node*) malloc(sizeof(struct node));
-    root->left->left->data = 4;
-    root->left->right = (struct node*) malloc(sizeof(struct node));
-    root->left->right->data = 5; */
+    // /* root->left->left = (struct node*) malloc(sizeof(struct node));
+    // root->left->left->data = 4;
+    // root->left->right = (struct node*) malloc(sizeof(struct node));
+    // root->left->right->data = 5; */
 
-    root->right->left = (struct node*) malloc(sizeof(struct node));
-    root->right->left->data = 6;
-    root->right->right = (struct node*) malloc(sizeof(struct node));
-    root->right->right->data = 7;
+    // root->right->left = (struct node*) malloc(sizeof(struct node));
+    // root->right->left->data = 6;
+    // root->right->right = (struct node*) malloc(sizeof(struct node));
+    // root->right->right->data = 7;
 
-    preOrder(root);
-    printf("\n");
-    inOrder(root);
-    printf("\n");
-    postOrder(root);
-    printf("\n");
+    // preOrder(root);
+    // printf("\n");
+    // inOrder(root);
+    // printf("\n");
+    // postOrder(root);
+    // printf("\n");
 
     // int preorder[] = {1,2,3,4,5};
     // int inorder[] = {4,2,1,5,3};
@@ -125,11 +126,11 @@ int main(void){
     // struct node* n = buildTreeUsingPreorderAndInorder(preorder, inorder, 0, 4);
     // inOrder(n);
 
-    // int postorder[] = {4,2,5,3,1};
-    // int inorder[] = {4,2,1,5,3};
+    int postorder[] = {7, 4, 8, 2, 1, 5, 9, 3, 6};
+    int inorder[] = {7, 8, 4, 2, 9, 5, 6, 3, 1};
 
-    // struct node* n = buildTreeUsingPostorderAndInorder(postorder, inorder, 0, 4);
-    // inOrder(n);
+    struct node* n = buildTreeUsingPostorderAndInorder(postorder, inorder, 0, 9);
+    inOrder(n);
 
     return 0;
 }

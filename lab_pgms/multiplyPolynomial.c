@@ -42,7 +42,19 @@ struct node* addTerm(struct node* result, int co, int po){
       curr = curr->next;
   }
   if(curr == NULL){
-    result = insertEnd(result, co, po);
+    result = insertEnd(result, co, po);  // to add things to result stack
+  }
+  return result;
+}
+
+struct node* multiply(struct node* poly1, struct node* poly2){
+  struct node* t1 = NULL;
+  struct node* t2 = NULL;
+  struct node* result = NULL;
+  for(t1 = poly1; t1 != NULL; t1 = t1->next){
+    for(t2 = poly2; t2 != NULL; t2 = t2->next){
+      result = addTerm(result, t1->co*t2->co, t1->po+t2->po);
+    }
   }
   return result;
 }
@@ -58,18 +70,6 @@ void display(struct node* head){
     temp = temp->next;
   }
   printf("%d*x^%d", temp->co, temp->po);
-}
-
-struct node* multiply(struct node* poly1, struct node* poly2){
-  struct node* t1 = NULL;
-  struct node* t2 = NULL;
-  struct node* result = NULL;
-  for(t1 = poly1; t1 != NULL; t1 = t1->next){
-    for(t2 = poly2; t2 != NULL; t2 = t2->next){
-      result = addTerm(result, t1->co*t2->co, t1->po+t2->po);
-    }
-  }
-  return result;
 }
 
 int main(void){
@@ -104,9 +104,6 @@ int main(void){
   printf("\nThe resultant polynomail: ");
   display(poly);
   printf("\n");
+
   return 0;
 }
-
-
-
-

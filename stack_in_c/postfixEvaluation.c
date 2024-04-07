@@ -26,6 +26,10 @@ int isempty() {
 
 int operation(char c, int num1, int num2) {
     switch (c) {
+        case '$': {
+            return num1 * num2;
+            break;
+        }
         case '*': {
             return num1 * num2;
             break;
@@ -68,6 +72,6 @@ void postfixEvaluation(char st[]) {
 }
 
 int main(void) {
-    postfixEvaluation("34+5*");
+    postfixEvaluation("632-5*+1$7+");
     return 0;
 }

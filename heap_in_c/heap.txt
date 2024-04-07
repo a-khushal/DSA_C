@@ -1,7 +1,7 @@
 A Heap is a special Tree-based data structure in which the tree is a complete binary tree.
 
 A Binary Tree is a Complete Binary Tree if all the levels are completely filled except possibly the last level and the last level has all keys as left as possible.
-A complete binary tree is just like a full binary tree, but with two major differences:
+A complete binary tree is just like a full binary tree, but with some major differences:
     -Every level except the last level must be completely filled.
     -All the leaf elements must lean towards the left.
     -The last leaf element might not have a right sibling i.e. a complete binary tree doesn’t have to be a full binary tree.

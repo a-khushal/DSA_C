@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 void heapify(int a[10], int n){
-	
 	int i, k, v, j, flag=0;
 	for(i=n/2; i>=1; i--){
 		k=i;
@@ -26,6 +25,7 @@ void heapify(int a[10], int n){
 	a[k]=v;
 	flag=0;
 	}
+    return 0;
 }
 
 int main(void){
