@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #define MAX_SIZE 50
 
 int top = -1;
@@ -27,7 +28,8 @@ int isempty() {
 int operation(char c, int num1, int num2) {
     switch (c) {
         case '$': {
-            return num1 * num2;
+            int ans = pow(num1, num2);
+            return ans;
             break;
         }
         case '*': {
