@@ -41,7 +41,7 @@ char* dequeue(Queue* q){
 
 void display(Queue q){
   int i;
-  if(q.front == 1){
+  if(q.front == -1){
     printf("\nQueue is empty");
   }
   else{

@@ -17,7 +17,7 @@ void display(Node root){
   }
 }
 
-Node createNode(Node root,int data){
+Node createNode(int data){
   Node temp = (Node) malloc(sizeof(struct node));
   temp->data = data;
   temp->left = NULL;
@@ -26,12 +26,12 @@ Node createNode(Node root,int data){
 }
 
 Node insertLeft(Node root, int item){
-  root->left = createNode(root, item);
+  root->left = createNode(item);
   return root->left;
 }
 
 Node insertRight(Node root, int item){
-  root->right = createNode(root, item);
+  root->right = createNode(item);
   return root->right;
 }
 
@@ -67,8 +67,7 @@ int leafNode(Node root){
 int nonLeafNode(Node root){
   if(root == NULL){
     return 0;
-  }
-  if(root->left == NULL && root->right == NULL){
+  } else if(root->left == NULL && root->right == NULL){
     return 0;
   } else {
     return (nonLeafNode(root->left) + nonLeafNode(root->right)) + 1;
@@ -77,7 +76,7 @@ int nonLeafNode(Node root){
 
 int main(void){
   Node root = NULL;
-  root = createNode(root, 10);
+  root = createNode(10);
   insertLeft(root, 20);
   insertRight(root, 30);
   insertLeft(root->left, 60);
