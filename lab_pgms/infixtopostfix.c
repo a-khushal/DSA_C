@@ -16,89 +16,61 @@ char pop(struct stack* s){
 	return s->data[(s->top)--];
 }
 
-int precedence(char symbol){
-	switch(symbol){
-		case '^':
-			return 5;
-		case '*':
-		case '/':
-			return 3;
-		case '+':
-		case '-':
-			return 1;
-	}
+int precedence(char ch){
+	if(ch == '^')
+		return 3;
+	else if(ch == '*' || ch == '/')
+		return 2;
+	else if(ch == '+' || ch == '-')
+		return 1;
+	else 
+		return -1;
 }
 
 void infixToPostfix(struct stack* s, char infix[SIZE]){
-	
-	int i, j=0;
-	char postfix[SIZE], temp, symbol;
-	
-	for(i=0; infix[i]!='\0'; i++){
-		symbol=infix[i];
-		
-		if(isalnum(symbol)){
-			postfix[j++]=symbol;
+	int j=0;
+	char postfix[SIZE], temp;
+	for(int i=0; infix[i]!='\0'; i++){
+		if(isalnum(infix[i])){
+			postfix[j++]=infix[i];
 		}
-		else{
-			switch(symbol){
-				
-				case '(':
-					push(s, symbol);
-					break;
-				
-				case ')':
-					temp=pop(s);
-					while(temp!='('){
-						postfix[j++]=temp;
-						temp=pop(s);
-					}
-					break;
-				case '^':
-				case '*':
-				case '/':
-				case '+':
-				case '-':
-					if(s->top==-1 || s->data[s->top]=='('){
-						push(s, symbol);
-					}
-					else {
-						while((precedence(s->data[s->top]))>=precedence(symbol) && s->top!=-1 && s->data[s->top]!='('){
-							postfix[j++]=pop(s);
-						}
-						push(s, symbol);
-					}
-					break;
-				default:
-					printf("\nInvalid option\n");
-					exit(0);
-				}
-			}
-		}
+		else if(infix[i]=='('){
+            push(s, infix[i]);
+        }
+        else if(infix[i]==')'){
+            while(s->top != -1 &&  s->data[s->top]!= '('){
+				postfix[j++] = pop(s);
+            }
+            if(s->top != -1 && s->data[s->top] == '('){
+                char temp = pop(s);
+            }
+        }
+        else{
+            while(s->top != -1 && s->data[s->top]!='(' && (precedence(s->data[s->top]))>(precedence(infix[i]))){
+				postfix[j++]=pop(s);
+            }
+            push(s, infix[i]);
+        }
+	}
 	while(s->top!=-1){
 		postfix[j++]=pop(s);
 	}
 	postfix[j]='\0';
-	printf("\nThe postfix expression is %s \n", postfix);
+	printf("The postfix expression is: %s\n", postfix);
 }
 
 int main(){
+	/* 	
+		without dynamic memory allocation: 
+		struct stack s;
+		s.top = -1;
+		everything else remains the same.
+	*/
 	struct stack* s = (struct stack*) malloc(sizeof(struct stack));
 	s->top=-1;
 	char infix[SIZE];
-	printf("\nRead the infix expression : ");
+	printf("Read the infix expression: ");
 	scanf("%s", infix);
 	infixToPostfix(s, infix);
 	return 0;
-} 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+}
