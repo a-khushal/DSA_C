@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tsize, hash[10], count;
+int tsize, hash[100], count;
 
 int Cal_Hash(int key) {
     return key % tsize;
@@ -54,18 +54,17 @@ void delete(int key) {
 }
 
 void display() {
-    int i;
     printf("\nThe elements in the hashtable are: ");
-    for (i = 0; i < tsize; i++){
+    for (int i = 0; i < tsize; i++){
         printf("\nElement at position %d: %d", i, hash[i]);
     }
 }
 
 int main() {
-    int key, i, j, ch, index, loc;
+    int key, ch;
     printf("Enter the size of the hash table: ");
     scanf("%d", &tsize);
-    for (i = 0; i < tsize; i++)
+    for (int i = 0; i < tsize; i++)
         hash[i] = -1;
     for (;;){
         printf("\n1. Insert");
@@ -84,7 +83,7 @@ int main() {
         case 2:
             printf("\nenter search key: ");
             scanf("%d", &key);
-            loc = search(key);
+            int loc = search(key);
             if (loc != -1)
                 printf("\nkey is found at index %d", loc);
             else
