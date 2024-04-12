@@ -29,33 +29,32 @@ int precedence(char ch){
 
 void infixToPostfix(struct stack* s, char infix[SIZE]){
 	int j=0;
-	char postfix[SIZE], temp;
-	for(int i=0; infix[i]!='\0'; i++){
+	char postfix[SIZE];
+	for(int i=0; infix[i] != '\0'; i++){
 		if(isalnum(infix[i])){
-			postfix[j++]=infix[i];
+			postfix[j++] = infix[i];
 		}
 		else if(infix[i]=='('){
             push(s, infix[i]);
         }
         else if(infix[i]==')'){
-            while(s->top != -1 &&  s->data[s->top]!= '('){
+            while(s->top != -1 &&  s->data[s->top] != '('){
 				postfix[j++] = pop(s);
             }
-            if(s->top != -1 && s->data[s->top] == '('){
-                char temp = pop(s);
-            }
+			if(s->top != -1)
+				pop(s);
         }
         else{
             while(s->top != -1 && s->data[s->top]!='(' && (precedence(s->data[s->top]))>(precedence(infix[i]))){
-				postfix[j++]=pop(s);
+				postfix[j++] = pop(s);
             }
             push(s, infix[i]);
         }
 	}
 	while(s->top!=-1){
-		postfix[j++]=pop(s);
+		postfix[j++] = pop(s);
 	}
-	postfix[j]='\0';
+	postfix[j] = '\0';
 	printf("The postfix expression is: %s\n", postfix);
 }
 
@@ -67,8 +66,10 @@ int main(){
 		everything else remains the same.
 	*/
 	struct stack* s = (struct stack*) malloc(sizeof(struct stack));
-	s->top=-1;
+	s->top = -1;
 	char infix[SIZE];
+	//	intput: ((A+B)-C*(D/E))+F
+	//	output: AB+CDE/*-F+  
 	printf("Read the infix expression: ");
 	scanf("%s", infix);
 	infixToPostfix(s, infix);
