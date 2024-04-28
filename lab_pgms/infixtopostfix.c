@@ -41,14 +41,14 @@ void infixToPostfix(struct stack* s, char infix[SIZE]){
             while(s->top != -1 &&  s->data[s->top] != '('){
 				postfix[j++] = pop(s);
             }
-			if(s->top != -1)
+			if(s->top != -1) // this is to pop the opening bracket
 				pop(s);
         }
         else{
             while(s->top != -1 && s->data[s->top]!='(' && (precedence(s->data[s->top]))>(precedence(infix[i]))){
 				postfix[j++] = pop(s);
             }
-            push(s, infix[i]);
+            push(s, infix[i]); // push the current character into the stack which had the lesser precedence than the top element of the stack
         }
 	}
 	while(s->top!=-1){
@@ -63,6 +63,7 @@ int main(){
 		without dynamic memory allocation: 
 		struct stack s;
 		s.top = -1;
+		infixToPostfix(&s, infix) pass the address of the stack
 		everything else remains the same.
 	*/
 	struct stack* s = (struct stack*) malloc(sizeof(struct stack));

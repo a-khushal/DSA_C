@@ -33,6 +33,7 @@ struct node* deleteBegin(struct node* last){
         printf("\nQueue's empty!");
         return NULL;
     }
+    count--;
     if(last->next == last){
         printf("\nNode deleted is: %d", last->data);
         free(last);

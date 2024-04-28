@@ -42,7 +42,7 @@ struct node* addTerm(struct node* result, int co, int po){
       curr = curr->next;
   }
   if(curr == NULL){
-    result = insertEnd(result, co, po);  // if at all the if condition fails we need to add to the result 
+    result = insertEnd(result, co, po);  // if at all the "if" conditions fail we need to add to the result 
   }
   return result;
 }

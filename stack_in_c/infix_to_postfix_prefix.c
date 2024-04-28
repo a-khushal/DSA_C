@@ -85,7 +85,7 @@ void infixToPostfix(char st[]){
 void infixToPrefix(char st[]){
     char newSt[size]; int m=0;
     for(int i=strlen(st)-1; i>=0; i--){
-        newSt[m]='\0';
+        // newSt[m]='\0';
         if(st[i]==')'){
             newSt[m]='(';
         }
@@ -96,7 +96,7 @@ void infixToPrefix(char st[]){
             newSt[m] = st[i];
         m++;
     }
-    printf("%s\n", newSt);
+    // printf("%s\n", newSt);
     int k=0;
     for(int i=0; i<strlen(newSt); i++){
         if((newSt[i]>='a' && newSt[i]<='z')||(newSt[i]>='A' && newSt[i]<='Z')){
@@ -143,8 +143,9 @@ void infixToPrefix(char st[]){
 // *-a/bc-/akl
 
 int main(void){
-    infixToPostfix("((A+B)-C*(D/E))+F");
-    // infixToPrefix("(a-b/c)*(a/k-l)");
+    // infixToPostfix("((A+B)-C*(D/E))+F");
+    infixToPostfix("(a-b/c)*(a/k-l)");
+    infixToPrefix("(a-b/c)*(a/k-l)");
     return 0;
 }
 

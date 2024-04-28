@@ -22,9 +22,10 @@ void heapify(int a[10], int n){
 				k=j;
 			}
 		}
-	a[k]=v;
-	flag=0;
+        a[k]=v;
+        flag=0;
 	}
+    return;
 }
 
 void heapSort(int a[10], int n){

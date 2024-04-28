@@ -92,15 +92,15 @@ struct node* expressionTress(char infix[]){
           osEle->left = pop(ts);
           push(ts, osEle);
         } 
-        push(os, temp);   // if the precedence condition above in while doesn't satisty then just push it to the operator stack(os) also ts -> tree stack
+        push(os, temp);   // if the precedence condition above in while doesn't satisty then just push it to the operator stack(os) here ts -> tree stack
       }
     }
   }
   while(os->top!=-1){
-    struct node* temp  = pop(os);
-    temp->right=pop(ts);
-    temp->left=pop(ts);
-    push(ts, temp);
+    osEle  = pop(os);
+    osEle->right=pop(ts);
+    osEle->left=pop(ts);
+    push(ts, osEle);
 	}
   return pop(ts);
 }
